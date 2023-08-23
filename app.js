@@ -76,7 +76,7 @@ app.post('/authRegister', (req, res) => {
 
         console.log(hashedPassword);
 
-        db.query('INSERT INTO userDb SET ?', {name: name, email: email, password: hashedPassword}, (error, results) => {
+        db.query('INSERT INTO userdb SET ?', {name: name, email: email, password: hashedPassword}, (error, results) => {
             if(error) {
                 console.log(error);
             } else {
@@ -100,7 +100,7 @@ app.post('/authLogin', async (req, res) => {
             });
         }
 
-        db.query('SELECT * FROM userDb WHERE email = ?', [email], async (error, results) => {
+        db.query('SELECT * FROM userdb WHERE email = ?', [email], async (error, results) => {
             // console.log(results);
             if(!results || !(await bcrypt.compare(password, results[0].password))) {
                 res.status(401).render('login', {
