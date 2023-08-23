@@ -23,5 +23,5 @@ jobs:
     - name: npm install
       run: npm install
     - name: npm test
-      run: node .\app.js
+      run: node app.js
     
