@@ -12,7 +12,9 @@ jobs:
         steps:
             - name: Pull Docker Image
               run: sudo docker pull chinmayakumarbiswal/nodelogin:latest
+              
             - name: Delete Old docker container
               run: sudo docker rm -f nodelogin || true
+
             - name: Run Docker Container
               run: sudo docker run -d --name nodelogin -p 80:5000 chinmayakumarbiswal/nodelogin:latest
